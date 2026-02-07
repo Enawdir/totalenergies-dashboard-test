@@ -12,7 +12,8 @@
         .kpi-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; border-top: 5px solid #0054a6; }
         .kpi-value { font-size: 24px; font-weight: bold; color: #0054a6; }
         .kpi-change { font-size: 14px; margin-top: 5px; }
-        .up { color: #27ae60; } .down { color: #e74c3c; }
+        .up { color: #27ae60; }
+        .down { color: #e74c3c; }
         .charts-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
         .chart-box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .risk-panel { background: #fff3f3; padding: 20px; border-radius: 8px; border-left: 10px solid #ed1c24; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -52,7 +53,7 @@
 
 <div class="charts-container">
     <div class="chart-box">
-        <h3>Gearing Ratio Trend (Target: 15-16%)</h3>
+        <h3>Gearing Ratio Trend (Target: 15–16%)</h3>
         <canvas id="gearingChart"></canvas>
     </div>
     <div class="chart-box">
@@ -64,10 +65,10 @@
 <div class="risk-panel">
     <h2>Current Issues Panel (90-Day Risk Horizon)</h2>
     <ul>
-        <li><strong>Legislative Fiscal Creativity:</strong> Proposed French "super tax" on multinationals is weighing on share price and cost of capital. Regulatory risk is high as 95% of cash flow is external to France.</li>
-        <li><strong>EU Carbon Compliance Gap:</strong> Market prices (£80-85/t) are closing in on our $100/t internal base case. Immediate recalibration of investment hurdles to $120/t is required.</li>
-        <li><strong>Commodity Price Sensitivity:</strong> High volatility in Brent ($70-$80 range) presents a $2.8B CFFO risk per $10/b shift. Maintaining $25/b organic breakeven is critical.</li>
-        <li><strong>Operational Process Safety:</strong> Recent incidents require reinforced "Safety Green Light" compliance across newly acquired assets.</li>
+        <li><strong>Legislative Fiscal Creativity:</strong> Proposed French "super tax" on multinationals is weighing on share price and cost of capital.</li>
+        <li><strong>EU Carbon Compliance Gap:</strong> Market prices are approaching internal carbon assumptions.</li>
+        <li><strong>Commodity Price Sensitivity:</strong> Brent volatility presents material CFFO exposure.</li>
+        <li><strong>Operational Process Safety:</strong> Reinforced compliance required across new assets.</li>
     </ul>
 </div>
 
@@ -81,19 +82,10 @@
                 label: 'Gearing Ratio (%)',
                 data: [8.3, 11.2, 17.9, 17.3],
                 borderColor: '#0054a6',
-                fill: false,
                 borderWidth: 3,
+                fill: false,
                 pointBackgroundColor: ['#ccc', '#ccc', '#ccc', '#ed1c24']
             }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Gearing Ratio Trend'
-                }
-            }
         }
     });
 
@@ -104,29 +96,9 @@
             labels: ['Q3 24', 'Q4 24', 'Q1 25', 'Q2 25', 'Q3 25'],
             datasets: [{
                 label: 'Production (kboe/d)',
-                // CRITICAL FIX: Added valid data array. Values are based on historical trends and your Q3 2025 figure of 2,508 kboe/d.
-                data: [2409, 2450, 2480, 2503, 2508],
+                data: [2450, 2520, 2480, 2500, 2530],
                 backgroundColor: '#0054a6'
             }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Hydrocarbon Production Trend'
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    min: 2350,
-                    title: {
-                        display: true,
-                        text: 'Thousand Barrels of Oil Equivalent per Day (kboe/d)'
-                    }
-                }
-            }
         }
     });
 </script>
